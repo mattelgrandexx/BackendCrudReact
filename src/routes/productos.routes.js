@@ -2,6 +2,7 @@ import { Router } from "express";
 import {
   crearProducto,
   listarProducto,
+  obtenerProducto,
 } from "../controllers/productos.controllers";
 
 // instansear el router
@@ -12,5 +13,6 @@ const router = Router();
 // })
 
 router.route("/productos").get(listarProducto).post(crearProducto);
+router.route("/productos/:id").get(obtenerProducto)
 
 export default router;
