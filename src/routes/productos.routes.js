@@ -1,6 +1,7 @@
 import { Router } from "express";
 import {
   crearProducto,
+  editarProducto,
   listarProducto,
   obtenerProducto,
 } from "../controllers/productos.controllers";
@@ -13,6 +14,7 @@ const router = Router();
 // })
 
 router.route("/productos").get(listarProducto).post(crearProducto);
-router.route("/productos/:id").get(obtenerProducto)
+router.route("/productos/:id").get(obtenerProducto).put(editarProducto);
+
 
 export default router;

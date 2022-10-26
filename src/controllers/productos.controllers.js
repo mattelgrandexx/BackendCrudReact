@@ -53,3 +53,21 @@ export const obtenerProducto = async (req, res) => {
   }
  };
 
+ export const editarProducto = async(req, res)=>{
+  try {
+    // obtener el parametro (req.params.id)
+    // obtener los datos del body validados (req.body)
+
+    // guardar el producto en mi base de datos
+    await Producto.findByIdAndUpdate(req.params.id, req.body);
+    res.status(200).json({
+      mensaje: "El producto fue editado correctamente"
+    })
+  } catch (error) {
+    console.log(error);
+    res.status(400).json({
+      mensaje: "Error al intentar editar un producto"
+    })
+    
+  }
+ }
